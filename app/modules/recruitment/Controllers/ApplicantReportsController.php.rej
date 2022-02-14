@@ -1,0 +1,18 @@
+diff a/local/app/modules/recruitment/Controllers/ApplicantReportsController.php b/local/app/modules/recruitment/Controllers/ApplicantReportsController.php	(rejected hunks)
+@@ -482,11 +482,11 @@
+ 
+     public function exportApplicantDetailReport(Request $request) {
+         $quota = [
+-            "son_of_freedom_fighter" => "মুক্তিযোদ্ধার সন্তান",
+-            "grandson_of_freedom_fighter" => "মুক্তিযোদ্ধার সন্তানের সন্তান",
+-            "member_of_ansar_or_vdp" => "আনসার - ভিডিপি সদস্য",
+-            "orphan" => "এতিম",
+-            "physically_disabled" => "শারীরিক প্রতিবন্ধী",
++            "son_of_freedom_fighter" => "ম�?ক�?তিযোদ�?ধার সন�?তান",
++            "grandson_of_freedom_fighter" => "ম�?ক�?তিযোদ�?ধার সন�?তানের সন�?তান",
++            "member_of_ansar_or_vdp" => "আনসার - ভিডিপি সদস�?য",
++            "orphan" => "�?তিম",
++            "physically_disabled" => "শারীরিক প�?রতিবন�?ধী",
+             "tribe" => "উপজাতি"
+         ];
+         $applicants = JobAppliciant::with(['circular' => function ($q) {

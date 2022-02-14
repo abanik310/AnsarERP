@@ -1,0 +1,26 @@
+diff a/local/app/modules/HRM/Controllers/ReportController.php b/local/app/modules/HRM/Controllers/ReportController.php	(rejected hunks)
+@@ -227,18 +227,17 @@
+             'numeric' => 'Ansar id must be numeric',
+             'date_format' => 'Invalid date format',
+         ];
+-        $bng_data = ["title" => "বাংলাদেশ আনসার ও গ্রাম প্রতিরক্ষা বাহিনী",
++        $bng_data = ["title" => "বাংলাদেশ আনসার ও গ�?রাম প�?রতিরক�?ষা বাহিনী",
+             "id_no" => "আইডি নং",
+             "name" => "নাম",
+             "rank" => "পদবী",
+-            "bg" => "রক্তের গ্রুপ",
++            "bg" => "রক�?তের গ�?র�?প",
+             "unit" => "জেলা",
+-            "id" => "প্রদানের তারিখ",
++            "id" => "প�?রদানের তারিখ",
+             "ed" => "শেষের তারিখ",
+-            "bs" => "বাহকের স্বাক্ষর",
+-            "is" => "কর্তৃকারীর স্বাক্ষর",
+-            "footer_title" => "প্রদানকারী কর্তৃপক্ষ : বাংলাদেশ আনসার ও ভিডিপি"];
+-			
++            "bs" => "বাহকের স�?বাক�?ষর",
++            "is" => "কর�?তৃকারীর স�?বাক�?ষর",
++            "footer_title" => "প�?রদানকারী কর�?তৃপক�?ষ : বাংলাদেশ আনসার ও ভিডিপি"];
+         $eng_data = [
+             "title" => "Bangladesh Ansar and Village Defence Party",
+             "name" => "Name",

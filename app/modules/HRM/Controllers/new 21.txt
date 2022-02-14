@@ -1,0 +1,52 @@
+
+
+
+SELECT ansar_id, `ansar_name_bng`, `mobile_no_self`
+FROM `tbl_ansar_parsonal_info` 
+WHERE ansar_id IN (
+SELECT ansar_id 
+FROM (
+SELECT ansar_id FROM `tbl_embodiment_log` 
+WHERE 
+`kpi_id` = 278
+AND `transfered_date` <= '2021-06-30'
+AND `release_date`  >=  '2021-07-01'
+UNION
+SELECT ansar_id FROM `tbl_embodiment_log` 
+WHERE 
+`kpi_id` = 278
+AND `joining_date` <= '2021-06-30'
+AND `transfered_date`  =  `joining_date` 
+AND `release_date`  >=  '2021-07-01'
+UNION 
+SELECT ansar_id FROM `tbl_transfer_ansar` 
+WHERE `present_kpi_id` = 278 AND 
+DATE(`present_kpi_join_date`) <= '2021-06-30'
+AND 
+DATE(`transfered_kpi_join_date`) >= '2021-07-01'
+UNION
+SELECT ansar_id FROM `tbl_embodiment` 
+WHERE 
+`kpi_id` = 278
+AND `transfered_date` <= '2021-06-30'
+AND `service_ended_date`  >=  '2021-07-01' 
+UNION
+SELECT ansar_id FROM `tbl_embodiment` 
+WHERE 
+`kpi_id` = 278
+AND `joining_date` <= '2021-06-30'
+AND `transfered_date`  =  `joining_date` 
+) t1
+WHERE ansar_id NOT IN (
+SELECT DISTINCT ansar_id FROM `tbl_freezing_info_log` WHERE DATE(`freez_date`) <= '2021-06-30' AND DATE(`move_frm_freez_date`) >= '2021-07-01'
+UNION
+SELECT DISTINCT ansar_id FROM `tbl_blacklist_info_log` WHERE DATE(`black_listed_date`) <= '2021-06-30' AND DATE(`unblacklist_date`) >= '2021-07-01'
+UNION
+SELECT DISTINCT ansar_id FROM `tbl_blocklist_info` WHERE DATE(`date_for_block`) <= '2021-06-30' AND `date_for_unblock` IS NOT NULL AND DATE(`date_for_unblock`) >= '2021-07-01'
+UNION
+SELECT DISTINCT ansar_id FROM `tbl_blacklist_info` WHERE DATE(`black_listed_date`) <= '2021-06-30' 
+UNION
+SELECT DISTINCT ansar_id FROM `tbl_freezing_info` WHERE kpi_id = 278 AND DATE(`freez_date`) <= '2021-06-30' 
+)
+)
+

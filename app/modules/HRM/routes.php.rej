@@ -1,0 +1,11 @@
+diff a/local/app/modules/HRM/routes.php b/local/app/modules/HRM/routes.php	(rejected hunks)
+@@ -480,6 +480,9 @@
+         Route::get('unblocked_ansar_test', ['as' => 'unblocked_ansar_test', 'uses' => 'OfferController@unblocked_ansar_test']);
+         Route::get('retirement_check_process', ['as' => 'retirement_check_process', 'uses' => 'OfferController@retirement_check_process']);
+         
++        Route::get('/process_block_for_age_ansars', ['as' => 'process_block_for_age_ansars', 'uses' => "BlockBlackController@process_retirement"]);
++
++        
+ 
+         Route::any('test', function (\Illuminate\Http\Request $request) {
+ 
